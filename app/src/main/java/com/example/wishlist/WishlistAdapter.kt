@@ -1,11 +1,12 @@
 package com.example.wishlist
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class WishlistAdapter (private val wish: List<Wishlist>) : RecyclerView.Adapter<WishlistAdapter.ViewHolder>(){
+class WishlistAdapter (private val wishlists: List<Wishlist>) : RecyclerView.Adapter<WishlistAdapter.ViewHolder>(){
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,16 +27,28 @@ class WishlistAdapter (private val wish: List<Wishlist>) : RecyclerView.Adapter<
             urlTextView = itemView.findViewById(R.id.url)
         }
     }
-
+    // ... constructor and member variables
+    // inflate layout from xml and return holder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        val context = parent.context
+        val inflater = LayoutInflater.from(context)
+        // Inflate custom layout
+        val contactView = inflater.inflate(R.layout.wishlist_item, parent, false)
+        // return a ne holder instance
+        return ViewHolder(contactView)
     }
 
+    // populate data into the item through holder
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        // Get the data model based on position
+        val wishlist: Wishlist = wishlists.get(position)
+        // Set item views based on your views and data model
+        holder.nameTextView.text = wishlist.name
+        holder.priceTextView.text = wishlist.price.toString()
+        holder.urlTextView.text = wishlist.url
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return wishlists.size
     }
 }
