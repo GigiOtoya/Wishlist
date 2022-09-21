@@ -3,4 +3,5 @@
     <string name="nameHint">Enter Name</string>
     <string name="priceHint">$</string>
     <string name="urlHint">url</string>
+    <string name="submitBtn">Submit</string>
 </resources>

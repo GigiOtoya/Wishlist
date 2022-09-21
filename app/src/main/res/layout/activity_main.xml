@@ -16,51 +16,86 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-<!--NAME-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nameTextInput"
-        android:hint="@string/nameHint"
+
+    <LinearLayout
+        android:id="@+id/linearLayoutTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/priceTextInput">
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutBottom">
+        <!--NAME-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameTextInput"
+            app:boxBackgroundColor="@android:color/transparent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:paddingEnd="20dp"
+            android:hint="@string/nameHint"
+            app:layout_constraintBottom_toTopOf="@id/priceTextInput">
 
-        <EditText
-            android:id="@+id/nameEditText"
-            android:inputType="text"
-            android:textSize="18sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                tools:text="TEST"
+                android:lines="1"
+                android:maxLines="1"
+                android:textSize="18sp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-<!--PRICE-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/priceTextInput"
-        android:hint="@string/priceHint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/urlTextInput">
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--PRICE-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/priceTextInput"
+            app:boxBackgroundColor="@android:color/transparent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:hint="@string/priceHint"
+            app:layout_constraintBottom_toTopOf="@id/urlTextInput">
 
-        <EditText
-            android:id="@+id/priceEditText"
-            android:inputType="numberDecimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/priceEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits=".0123456789"
+                android:inputType="numberDecimal"
+                android:lines="1"
+                android:maxLines="1"
+                android:textSize="18sp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-<!--URL-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/urlTextInput"
-        android:hint="@string/urlHint"
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent">
+        <!--URL-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/urlTextInput"
+            app:boxBackgroundColor="@android:color/transparent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/urlHint"
+            android:layout_weight="0.7"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <EditText
-            android:id="@+id/urlEditText"
-            android:inputType="textUri"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/urlEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textUri" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--SubmitBtn-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/submitBtn"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
