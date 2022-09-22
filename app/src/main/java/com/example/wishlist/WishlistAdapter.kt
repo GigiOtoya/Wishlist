@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class WishlistAdapter (private val wishlists: List<Wishlist>) : RecyclerView.Adapter<WishlistAdapter.ViewHolder>(){
+class WishlistAdapter (private val wishlists: MutableList<Wishlist>) : RecyclerView.Adapter<WishlistAdapter.ViewHolder>(){
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -27,6 +27,15 @@ class WishlistAdapter (private val wishlists: List<Wishlist>) : RecyclerView.Ada
             urlTextView = itemView.findViewById(R.id.url)
         }
     }
+
+    fun addWishlist(wishlist: Wishlist) {
+        wishlists.add(wishlist)
+        notifyItemInserted(wishlists.size-1)
+    }
+    fun deleteWishlist(wishlist: Wishlist) {
+        wishlists.remove(wishlist)
+        notifyItemRemoved(wishlists.size-1)
+    }
     // ... constructor and member variables
     // inflate layout from xml and return holder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,7 +43,7 @@ class WishlistAdapter (private val wishlists: List<Wishlist>) : RecyclerView.Ada
         val inflater = LayoutInflater.from(context)
         // Inflate custom layout
         val contactView = inflater.inflate(R.layout.wishlist_item, parent, false)
-        // return a ne holder instance
+        // return a new holder instance
         return ViewHolder(contactView)
     }
 
