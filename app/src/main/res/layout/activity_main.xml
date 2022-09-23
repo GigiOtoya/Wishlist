@@ -53,6 +53,7 @@
                     android:inputType="text"
                     tools:text="some item"
                     android:textColor="@color/white"
+                    android:textCursorDrawable="@color/white"
                     android:lines="1"
                     android:maxLines="1"
                     android:textSize="18sp" />
@@ -79,6 +80,7 @@
                     android:inputType="numberDecimal"
                     tools:text="15.00"
                     android:textColor="@color/white"
+                    android:textCursorDrawable="@color/white"
                     android:lines="1"
                     android:maxLines="1"
                     android:textSize="18sp" />
@@ -111,7 +113,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="textUri"
                     tools:text="URL"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textCursorDrawable="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
             <!--SubmitBtn-->
