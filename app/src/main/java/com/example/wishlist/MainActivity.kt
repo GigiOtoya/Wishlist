@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             val priceEt = findViewById<EditText>(R.id.priceEditText)
             val urlEt = findViewById<EditText>(R.id.urlEditText)
             val name = nameEt.text.toString()
-            val price = priceEt.text.toString()
+            val price = "$"+priceEt.text.toString()
             val url = urlEt.text.toString()
 
             if (name.isNotEmpty() && price.isNotEmpty() && url.isNotEmpty()) {

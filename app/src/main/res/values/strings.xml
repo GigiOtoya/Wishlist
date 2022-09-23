@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Wishlist</string>
-    <string name="nameHint">Item Name</string>
-    <string name="priceHint">$</string>
-    <string name="urlHint">url</string>
+    <string name="nameHint"><font fgcolor="@color/white">Item Name</font></string>
+    <string name="priceHint"><font fgcolor="@color/white">$</font></string>
+    <string name="urlHint"><font fgcolor="@color/white">url</font></string>
     <string name="submitBtn">Submit</string>
 </resources>
